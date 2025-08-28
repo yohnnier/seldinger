@@ -1,19 +1,441 @@
-<!-- Sección de Inicio -->
-<section id="inicio" class="section text-center">
-    <h2>Descubriendo la Técnica Seldinger</h2>
-    <p class="lead">Una herramienta fundamental en la medicina moderna para el acceso vascular y más allá, presentada de forma dinámica e interactiva.</p>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnica Seldinger: Origen, Evolución y Aplicación</title>
 
-<!-- Sección: Origen de la Técnica Seldinger -->
-<section id="origen" class="section">
-    <h2>ORIGEN DE LA TÉCNICA SELDINGER</h2>
-    <p>En los años 50, el radiólogo sueco <strong>Sven-Ivar Seldinger</strong>, frente a las dificultades de canalización arterial, tuvo la brillante idea de usar, después de la punción con aguja, un alambre para usarlo como guía del catéter.</p>
-    <div class="quote">
-        "Me encontraba luchando con el problema de desarrollar un mejor método de cateterismo..."
-        <span class="quote-author">- Sven-Ivar Seldinger</span>
+    <!-- Google Fonts: Inter (mejor legibilidad y estética) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* =========================
+           Tipografía uniforme
+        ========================== */
+        :root{
+            --color-texto:#343a40;
+            --color-azul:#0056b3;
+            --color-azul-grad-i:rgba(0,123,255,1);
+            --color-azul-grad-f:rgba(0,80,170,1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+            line-height: 1.7;
+            background-color: #f0f2f5;
+            color: var(--color-texto);
+            padding-top: 70px; /* espacio para navbar fijo */
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--color-azul);
+            letter-spacing: 0.2px;
+        }
+
+        p, li, .quote {
+            font-weight: 400;
+            color: var(--color-texto);
+        }
+
+        /* =========================
+           Navbar
+        ========================== */
+        .navbar {
+            background: linear-gradient(90deg, var(--color-azul-grad-i) 0%, var(--color-azul-grad-f) 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            transition: color 0.3s ease;
+        }
+        .navbar-brand:hover, .nav-link:hover { color: #d4eaff !important; }
+        .navbar-toggler { border-color: #fff; }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .nav-link.active {
+            color: #fff !important;
+            border-bottom: 2px solid #fff;
+        }
+
+        /* =========================
+           Secciones
+        ========================== */
+        .section {
+            padding: 80px 30px;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section p {
+            text-align: justify;
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+
+        /* =========================
+           Imágenes
+        ========================== */
+        .image-container {
+            text-align: center;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            padding: 0 15px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* =========================
+           Citas
+        ========================== */
+        .quote {
+            font-style: italic;
+            background-color: #eef4ff;
+            padding: 30px;
+            border-left: 5px solid #007bff;
+            margin: 30px auto;
+            border-radius: 8px;
+            text-align: center;
+            color: #495057;
+            max-width: 80%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .quote-author {
+            font-weight: 600;
+            text-align: right;
+            display: block;
+            margin-top: 15px;
+            color: var(--color-azul);
+            padding-right: 30px;
+        }
+
+        /* =========================
+           Pasos
+        ========================== */
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: background-color 0.3s ease;
+        }
+        .step:hover { background-color: #e9ecef; }
+        .step-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #007bff;
+            margin-right: 25px;
+            flex-shrink: 0;
+            opacity: 0.7;
+            line-height: 1;
+        }
+        .step-content p { margin-bottom: 0; text-align: left; padding: 0; }
+
+        /* =========================
+           Tabla comparativa
+        ========================== */
+        .comparison-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            box-shadow: none;
+        }
+        .comparison-table th, .comparison-table td {
+            border: none;
+            padding: 15px 20px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .comparison-table thead th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 10px 10px 0 0;
+            padding-top: 20px;
+        }
+        .comparison-table tbody tr {
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .comparison-table tbody tr:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .comparison-table td { border-top: 1px solid #e9ecef; }
+        .comparison-table td:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; font-weight: 500; }
+        .comparison-table td:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+
+        /* =========================
+           Puntos comunes
+        ========================== */
+        .common-points {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .common-points h4 { color: #155724; margin-bottom: 20px; font-weight: 700; }
+        .common-points ul { padding-left: 30px; list-style-type: disc; }
+        .common-points li { margin-bottom: 10px; color: #198754; }
+
+        /* =========================
+           Animaciones
+        ========================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* =========================
+           Responsive
+        ========================== */
+        @media (max-width: 992px) {
+            .section { padding: 60px 20px; }
+            .quote { max-width: 95%; }
+            .step-number { font-size: 2em; margin-right: 15px; }
+        }
+        @media (max-width: 768px) {
+            .section { padding: 40px 15px; }
+            .navbar-brand { font-size: 1.2rem; }
+            .navbar-nav .nav-link { padding: 10px 15px; }
+            .navbar-nav .nav-link.active { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Fijo -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">Técnica Seldinger</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#origen">Origen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tecnica-hoy">Hoy en Día</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#evolucion">Evolución</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comparacion">Comparación</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Sección de Inicio (sin imagen repetida) -->
+        <section id="inicio" class="section text-center">
+            <h2>Descubriendo la Técnica Seldinger</h2>
+            <p class="lead">Una herramienta fundamental en la medicina moderna para el acceso vascular y más allá, presentada de forma dinámica e interactiva.</p>
+        </section>
+
+        <!-- Sección: Origen de la Técnica Seldinger -->
+        <section id="origen" class="section">
+            <h2>ORIGEN DE LA TÉCNICA SELDINGER</h2>
+            <p>En los años 50, el radiólogo sueco <strong>Sven-Ivar Seldinger</strong>, frente a las dificultades de canalización arterial, tuvo la brillante idea de usar, después de la punción con aguja, un alambre para usarlo como guía del catéter.</p>
+            <div class="quote">
+                "Me encontraba luchando con el problema de desarrollar un mejor método de cateterismo cuando tuve un severo ataque de sentido común: después de un intento fallido al utilizar esta técnica me encontré decepcionado, con tres objetos en mi mano: una aguja, un alambre y un catéter, y en una fracción de segundos me di cuenta en qué secuencia debería utilizarlos. Coloco la aguja, por dentro el alambre, retiro la aguja, avanzo el catéter sobre el alambre y retiro el alambre.”
+                <span class="quote-author">- Sven-Ivar Seldinger</span>
+            </div>
+            <p>Esta técnica revolucionó la manera de poder acceder a los vasos de tal forma que se extrapoló a otros tipos de catéteres e incluso a otras aplicaciones no venosas.</p>
+            <div class="image-container">
+                <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/ChatGPT-Image-27-jun-2025-11_21_27.png" alt="Representación conceptual de la Técnica Seldinger">
+            </div>
+        </section>
+
+        <!-- Sección: La Técnica Seldinger Hoy en Día -->
+        <section id="tecnica-hoy" class="section">
+            <h2>LA TÉCNICA SELDINGER HOY EN DÍA</h2>
+            <p>De base, la técnica Seldinger suponía manejar una aguja de gran calibre y una guía más rígida y gruesa, lo que tenía como consecuencia una mayor invasividad a la hora de canalizar la vía.</p>
+            <p>Sin embargo, en los últimos años la mejora tecnológica ha hecho que los componentes de los kits Seldinger sean de mayor calidad:</p>
+            <div class="image-container">
+                <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/seldinger.jpg" alt="Componentes modernos de un kit Seldinger">
+            </div>
+            <p>Respecto al desarrollo de la técnica por el Dr. Seldinger, la técnica hoy en día es principalmente la misma. Y en lo que se refiere al catéter midline, los pasos para la inserción son los siguientes:</p>
+            <div class="image-container">
+                <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/ChatGPT-Image-27-jun-2025-11_32_51.png" alt="Pasos de inserción de catéter midline con Técnica Seldinger">
+            </div>
+            <p>En este caso particular, cuando se controla perfectamente la técnica de colocación del catéter, el dilatador es lo suficientemente fino y perfilado para evitar el corte con bisturí. Esto contribuye significativamente a la mejora continua de prácticas que buscan minimizar el daño al paciente y sus posibles complicaciones.</p>
+            <p>Como se mencionó anteriormente, la técnica Seldinger también se aplica en otros ámbitos médicos, como la colocación de drenajes pleurales o pericárdicos.</p>
+        </section>
+
+        <!-- Sección: La Evolución de la Técnica -->
+        <section id="evolucion" class="section">
+            <h2>LA EVOLUCIÓN DE LA TÉCNICA</h2>
+            <p>Con la aparición de los PICCs (Catéteres Centrales de Inserción Periférica), la técnica evolucionó de manera notable, basándose en los siguientes puntos:</p>
+            <ul>
+                <li>Al tener un catéter largo (aprox. 55-60 cm), la técnica Seldinger clásica requería introducir una guía muy larga (90-140 cm) para alcanzar la vena cava superior. Esto presentaba desafíos como el mantenimiento de la esterilidad y el riesgo de migraciones de la guía dentro del sistema vascular.</li>
+                <li>Previamente a la Microseldinger, existía la técnica de la cánula pelable. Si bien su curva de aprendizaje era baja, exigía venas de gran calibre, ya que el catéter debía pasar por una cánula de gran diámetro. Esto la hacía invasiva y poco adecuada para la punción de venas profundas periféricas.</li>
+            </ul>
+            <p>La versión evolucionada, conocida como <strong>Seldinger modificada (o Microseldinger/micropunción)</strong>, introduce un microintroductor. Este actúa como guía para dirigir el catéter correctamente en la vena puncionada. El microintroductor contiene un dilatador que se retira antes de insertar el catéter. Suele ser pelable, permitiendo su extracción al final del procedimiento, y puede ir con o sin fiador, siendo este último el que otorga mayor rigidez para una progresión más fácil.</p>
+            <div class="image-container">
+                <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/introductor.png" alt="Microintroductor para Técnica Seldinger Modificada">
+            </div>
+
+            <h3>PASOS DE LA TÉCNICA MICROSELDINGER (MST):</h3>
+            <div class="image-container">
+                <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-82.png" alt="Pasos de la Técnica MicroSeldinger">
+            </div>
+        </section>
+
+        <!-- Sección: Comparación entre las 2 Técnicas -->
+        <section id="comparacion" class="section">
+            <h2>COMPARACIÓN ENTRE LAS 2 TÉCNICAS</h2>
+            <p>A continuación, se detallan las principales diferencias y similitudes entre la técnica Seldinger clásica y su versión modificada (MST):</p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Técnica Seldinger Clásica</th>
+                        <th>Técnica Seldinger Modificada (MST)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tamaño de Aguja/Guía</td>
+                        <td>Generalmente mayor calibre, guía más rígida</td>
+                        <td>Aguja e introductor más finos, guía flexible</td>
+                    </tr>
+                    <tr>
+                        <td>Invasividad</td>
+                        <td>Potencialmente mayor</td>
+                        <td>Menor</td>
+                    </tr>
+                    <tr>
+                        <td>Aplicación PICC</td>
+                        <td>Requiere guías más largas y manejo cuidadoso</td>
+                        <td>Facilita la inserción de PICCs y otros catéteres largos</td>
+                    </tr>
+                    <tr>
+                        <td>Introductor Pelable</td>
+                        <td>No aplica</td>
+                        <td>Sí, simplifica la progresión del catéter</td>
+                    </tr>
+                    <tr>
+                        <td>Uso de Bisturí</td>
+                        <td>Puede requerirse en ocasiones</td>
+                        <td>Menos probable si hay buena técnica</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="common-points">
+                <h4>Puntos comunes a las 2 técnicas:</h4>
+                <ul>
+                    <li>Uso de ecografía para la guía de punción.</li>
+                    <li>Aguja fina de 21G (en muchos protocolos).</li>
+                    <li>Guía flexible anti-acodamiento (nitinol).</li>
+                </ul>
+            </div>
+
+            <p>Ambas técnicas son aplicables a una amplia gama de indicaciones, siempre evaluando el capital venoso del paciente y el tipo de tratamiento a administrar.</p>
+            <p>Como ventaja destacada, la menor invasividad de la técnica Seldinger modificada, gracias a su dilatador y microintroductor más finos, es un gran beneficio. Además, la experiencia del operador permite evitar el uso de bisturí, minimizando el trauma.</p>
+            <p>Por su parte, el introductor pelable de la MST es particularmente útil en pacientes con tejido subcutáneo flácido, donde la progresión del catéter sobre la guía puede ser más desafiante.</p>
+            <p>Es crucial recordar que la destreza del operador es el factor determinante. Un profesional experto en ambas técnicas encontrará que las diferencias se vuelven mínimas, especialmente al trabajar con catéteres de línea media.</p>
+        </section>
+
     </div>
-    <p>Esta técnica revolucionó la manera de poder acceder a los vasos...</p>
-    <div class="image-container">
-        <img src="https://asenfovalle.cl/wp-content/uploads/2025/06/ChatGPT-Image-27-jun-2025-11_21_27.png" alt="Representación conceptual de la Técnica Seldinger">
-    </div>
-</section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts personalizados -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Efecto fade-in al hacer scroll
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            });
+
+            // Resaltado de enlace activo en navbar
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            const currentSection = () => {
+                const scrollPosition = window.scrollY;
+                let currentActiveLink = null;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 70; // altura del navbar
+                    const sectionHeight = section.clientHeight;
+                    const id = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentActiveLink = document.querySelector(`.navbar-nav .nav-link[href="#${id}"]`);
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link === currentActiveLink) link.classList.add('active');
+                    else link.classList.remove('active');
+                });
+            };
+
+            window.addEventListener('scroll', currentSection);
+            currentSection();
+        });
+    </script>
+
+</body>
+</html>
